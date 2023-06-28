@@ -11,6 +11,7 @@ stages {
      
    sh '''
    echo demo
+
    env
 
 '''
@@ -26,7 +27,11 @@ stages {
         }
          stage('Stage three') {
             steps {
+                sh '''
                echo "This is Stage three"
+               echo -e "\\e[32m Hi \\e[0m" 
+
+                '''
             }
         }
     }
