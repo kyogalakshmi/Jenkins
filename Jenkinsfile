@@ -7,11 +7,11 @@ pipeline {
     stages {
         stage('Stage One') {
             steps {
-    sh
-    '''
-      echo Devops
-      echo AWS
-       '''
+   
+   sh '''
+   echo demo
+
+'''
       echo "Name of the URL is ${ENV_URL}"
      
    
