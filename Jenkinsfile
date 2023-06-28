@@ -2,9 +2,10 @@ pipeline {
     agent any
     environment {
         ENV_URL ="pipeline.google.com"
+        AN_ACCESS_KEY=credentials('SSH_CRED') // env var (AN_ACCESS_KEY) of jenkins
     }
 
-    stages {
+stages {
         stage('Stage One') {
             steps {
    
