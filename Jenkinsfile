@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('Stage One') {
             steps {
-               echo "This is Stage one"
+      sh '''echo Devops
+echo AWS'''
             }
         }
          stage('Stage two') {
