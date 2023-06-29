@@ -75,7 +75,7 @@ echo "Name of the URL is ${ENV_URL}"
                 sh '''
                echo "This is Stage three"
                echo -e "\\e[32m Hi \\e[0m" 
-               sleep 10
+               
                 '''
             }
         }
@@ -85,7 +85,7 @@ echo "Name of the URL is ${ENV_URL}"
                 sh '''
                echo "This is Stage four"
                echo -e "\\e[32m Hi \\e[0m" 
-               sleep 10
+               
 
                 '''
             }
@@ -95,6 +95,7 @@ echo "Name of the URL is ${ENV_URL}"
   post {
         always {  // always is a condition which will run always even it is passed / failed
             echo "I will always say Hello again!"
+        clean ws //is used to clean the workspacr
         }
         aborted {
             echo "I will run again!"
