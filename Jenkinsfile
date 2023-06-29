@@ -47,12 +47,15 @@ echo "Name of the URL is ${ENV_URL}"
             }
         
          stage('Stage three') {
-            when { branch 'dev' }
+            when { 
+                branch 'dev' 
+                when { changeset "**/*.js" } // when there is a change in .js file in dev env
+            }
             steps {
                 sh '''
                echo "This is Stage three"
                echo -e "\\e[32m Hi \\e[0m" 
-
+               sleep 10
                 '''
             }
         }
