@@ -23,6 +23,7 @@ stage('Parallel In Sequential') {
                         stage('In Parallel 1') {
                             steps {
                                 echo "In Parallel 1"
+                               sh "hostname"
                             }
                         }
                         stage('In Parallel 2') {
