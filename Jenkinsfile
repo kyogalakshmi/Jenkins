@@ -16,7 +16,7 @@ pipeline {
         ENV_URL ="pipeline.google.com"
         SSHCRED =credentials('SSH_CRED') // env var 
     }
-    triggers { pollSCM('*/1 * * * *') }
+    //triggers { pollSCM('*/1 * * * *') }
 stages {
         stage('Stage One') {
             steps {
