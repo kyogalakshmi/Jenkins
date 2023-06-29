@@ -16,14 +16,7 @@ pipeline {
         ENV_URL ="pipeline.google.com"
         SSHCRED =credentials('SSH_CRED') // env var 
     }
-     input {
-                message "Should we continue?"
-                ok "Yes, we should."
-                submitter "alice,bob"
-                parameters {
-                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-                }
-triggers { pollSCM('*/1 * * * *') }
+    triggers { pollSCM('*/1 * * * *') }
 stages {
         stage('Stage One') {
             steps {
@@ -35,7 +28,13 @@ stages {
 
 '''
       echo "Name of the URL is ${ENV_URL}"
-      
+       input {
+                message "Should we continue?"
+                ok "Yes, we should."
+                submitter "alice,bob"
+                parameters {
+                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+                }
    
             }
         }
