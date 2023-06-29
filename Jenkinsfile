@@ -50,9 +50,10 @@ echo "Name of the URL is ${ENV_URL}"
             }
         
          stage('Stage three') {
-            when { 
+            when {  anyOf {   //anyOf the condition met
                 branch 'dev' 
                 changeset "**/*.js" // when there is a change in .js file in dev env
+            }
             }
             steps {
                 sh '''
