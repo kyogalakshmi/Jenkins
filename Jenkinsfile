@@ -30,9 +30,9 @@ stage('Parallel In Sequential') {
                                 echo "In Parallel 2"
                             }
                         }
-                    }
+                    
 }
-  parallel {
+}
 stage('Stage One') {
             steps {
      
@@ -63,7 +63,7 @@ echo "Name of the URL is ${ENV_URL}"
                 '''
         }
             }
-  }
+  
         
          stage('Stage three') {
             when {  anyOf {   //anyOf the condition met
