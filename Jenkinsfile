@@ -47,9 +47,19 @@ echo "Name of the URL is ${ENV_URL}"
             }
         
          stage('Stage three') {
+            when { branch 'dev' }
             steps {
                 sh '''
                echo "This is Stage three"
+               echo -e "\\e[32m Hi \\e[0m" 
+
+                '''
+            }
+        }
+         stage('Stage four') {
+            steps {
+                sh '''
+               echo "This is Stage four"
                echo -e "\\e[32m Hi \\e[0m" 
 
                 '''
