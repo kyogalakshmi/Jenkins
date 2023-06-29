@@ -1,22 +1,28 @@
 pipeline {
     agent any
     
-     parameters {
-        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+    //  parameters {
+    //     string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
 
-        text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
+    //     text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
 
-        booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
+    //     booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
 
-        choice(name: 'ENV', choices: ['QA', 'DEV', 'CERT'], description: 'Enter a Env')
+    //     choice(name: 'ENV', choices: ['QA', 'DEV', 'CERT'], description: 'Enter a Env')
 
-        password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
-    }
+    //     password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
+    // }
     environment {
         ENV_URL ="pipeline.google.com"
         SSHCRED =credentials('SSH_CRED') // env var 
     }
-    
+     input {
+                message "Should we continue?"
+                ok "Yes, we should."
+                submitter "alice,bob"
+                parameters {
+                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+                }
 triggers { pollSCM('*/1 * * * *') }
 stages {
         stage('Stage One') {
@@ -29,7 +35,7 @@ stages {
 
 '''
       echo "Name of the URL is ${ENV_URL}"
-     
+      
    
             }
         }
