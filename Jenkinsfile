@@ -96,6 +96,9 @@ echo "Name of the URL is ${ENV_URL}"
         always {  // always is a condition which will run always even it is passed / failed
             echo "I will always say Hello again!"
         }
+        aborted {
+            echo "I will run again!"
+        }
     }
 
 }
