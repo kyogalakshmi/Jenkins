@@ -43,6 +43,9 @@ echo "Name of the URL is ${ENV_URL}"
             // }
              steps {
                echo "This is Stage two"
+                sh '''
+              sleep 10
+                '''
         }
             }
         
@@ -64,6 +67,7 @@ echo "Name of the URL is ${ENV_URL}"
                 sh '''
                echo "This is Stage four"
                echo -e "\\e[32m Hi \\e[0m" 
+               sleep 10
 
                 '''
             }
