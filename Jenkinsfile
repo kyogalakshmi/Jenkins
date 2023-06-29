@@ -27,7 +27,7 @@ stages {
    env
 
 '''
-      echo "Name of the URL is ${ENV_URL}"
+echo "Name of the URL is ${ENV_URL}"
        input {
                 message "Should we continue?"
                 ok "Yes, we should."
@@ -37,6 +37,7 @@ stages {
                 }
    
             }
+        }
         }
          stage('Stage two') {
             steps {
@@ -54,4 +55,4 @@ stages {
         }
     }
 }
-}
+
