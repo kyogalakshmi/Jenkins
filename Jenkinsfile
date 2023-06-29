@@ -18,7 +18,22 @@ pipeline {
     }
     //triggers { pollSCM('*/1 * * * *') }
 stages {
-        stage('Stage One') {
+stage('Parallel In Sequential') {
+                    parallel {
+                        stage('In Parallel 1') {
+                            steps {
+                                echo "In Parallel 1"
+                            }
+                        }
+                        stage('In Parallel 2') {
+                            steps {
+                                echo "In Parallel 2"
+                            }
+                        }
+                    }
+}
+  parallel {
+stage('Stage One') {
             steps {
      
    sh '''
@@ -48,6 +63,7 @@ echo "Name of the URL is ${ENV_URL}"
                 '''
         }
             }
+  }
         
          stage('Stage three') {
             when {  anyOf {   //anyOf the condition met
@@ -64,6 +80,7 @@ echo "Name of the URL is ${ENV_URL}"
             }
         }
          stage('Stage four') {
+        
             steps {
                 sh '''
                echo "This is Stage four"
